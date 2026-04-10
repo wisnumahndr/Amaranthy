@@ -388,23 +388,107 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-20 bg-ink text-cream/40 border-t border-cream/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-12">
-            <div className="text-center md:text-left">
-              <h3 className="text-2xl font-serif text-cream mb-2 tracking-tighter">AMARANTHY</h3>
-              <p className="text-[10px] uppercase tracking-[0.3em]">Refined Beauty Since 2020</p>
-            </div>
-            
-            <div className="flex gap-12">
-              <a href="#" className="hover:text-gold transition-colors"><Instagram className="w-5 h-5" /></a>
-              <a href="#" className="text-[10px] uppercase tracking-widest hover:text-gold transition-colors">Privacy</a>
-              <a href="#" className="text-[10px] uppercase tracking-widest hover:text-gold transition-colors">Terms</a>
+      <footer className="bg-ink text-cream/60 pt-32 pb-12 border-t border-cream/5 relative overflow-hidden">
+        {/* Decorative background element */}
+        <div className="absolute -bottom-20 -right-20 text-[20rem] font-serif text-cream/[0.02] select-none pointer-events-none">
+          A
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+            {/* Brand Column */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-3xl font-serif text-cream mb-2 tracking-tighter">AMARANTHY</h3>
+                <p className="text-[10px] uppercase tracking-[0.3em] text-gold">Refined Beauty Since 2020</p>
+              </div>
+              <p className="text-sm font-light leading-relaxed max-w-xs">
+                Jakarta's premier destination for bespoke beauty treatments. We believe in enhancing your natural elegance through precision and artistry.
+              </p>
+              <div className="flex gap-6">
+                <a href="#" className="w-10 h-10 rounded-full border border-cream/10 flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300">
+                  <Instagram className="w-4 h-4" />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-full border border-cream/10 flex items-center justify-center hover:border-gold hover:text-gold transition-all duration-300">
+                  <Phone className="w-4 h-4" />
+                </a>
+              </div>
             </div>
 
-            <div className="text-center md:text-right">
-              <p className="text-[10px] uppercase tracking-widest">&copy; 2026 Amaranthy Salon. All rights reserved.</p>
-              <p className="text-[8px] mt-2 opacity-30">Designed for Excellence</p>
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-cream font-sans text-[10px] uppercase tracking-[0.2em] mb-10">Navigation</h4>
+              <ul className="space-y-4">
+                {["Services", "Testimonials", "Location", "Booking"].map((item) => (
+                  <li key={item}>
+                    <button 
+                      onClick={() => scrollToSection(item.toLowerCase())}
+                      className="text-sm font-light hover:text-gold transition-colors flex items-center group"
+                    >
+                      <span className="w-0 group-hover:w-4 h-px bg-gold mr-0 group-hover:mr-2 transition-all duration-300" />
+                      {item}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h4 className="text-cream font-sans text-[10px] uppercase tracking-[0.2em] mb-10">Our Services</h4>
+              <ul className="space-y-4">
+                {["Eyelash Extensions", "Nail Artistry", "Beauty Rituals", "Bridal Packages", "Gift Vouchers"].map((item) => (
+                  <li key={item}>
+                    <button 
+                      onClick={() => scrollToSection('services')}
+                      className="text-sm font-light hover:text-gold transition-colors"
+                    >
+                      {item}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact & Hours */}
+            <div>
+              <h4 className="text-cream font-sans text-[10px] uppercase tracking-[0.2em] mb-10">Visit Us</h4>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <MapPin className="w-4 h-4 text-gold shrink-0" />
+                  <p className="text-sm font-light leading-relaxed">
+                    Jl. Tanjung Duren Barat I No. 12, Jakarta Barat
+                  </p>
+                </div>
+                <div className="flex gap-4">
+                  <Sparkles className="w-4 h-4 text-gold shrink-0" />
+                  <p className="text-sm font-light">
+                    Mon - Sun: 10:00 - 20:00
+                  </p>
+                </div>
+                <div className="pt-4">
+                  <button 
+                    onClick={() => scrollToSection('booking')}
+                    className="text-[10px] uppercase tracking-widest text-gold border-b border-gold/30 pb-1 hover:border-gold transition-all"
+                  >
+                    Book Appointment
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="pt-12 border-t border-cream/5 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex gap-8 order-2 md:order-1">
+              <a href="#" className="text-[10px] uppercase tracking-widest hover:text-gold transition-colors">Privacy Policy</a>
+              <a href="#" className="text-[10px] uppercase tracking-widest hover:text-gold transition-colors">Terms of Service</a>
+            </div>
+            
+            <div className="text-center md:text-right order-1 md:order-2">
+              <p className="text-[10px] uppercase tracking-widest opacity-40">
+                &copy; 2026 Amaranthy Eyelash, Nail & Beauty Salon.
+              </p>
             </div>
           </div>
         </div>
